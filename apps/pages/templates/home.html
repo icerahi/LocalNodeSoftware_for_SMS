@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket</title>
+
+</head>
+<body>
+        <p id="status">Status: Disconnect</p>
+    <h1 style="text-align:center;" id='school_name'> Node Home page</h1>
+    <span>Class Name : :</span> <h2 style="text-align:center; block:inline-block;" id='class_name'></h2>
+    <span>Ip Address :</span> <h2 id='ip'></h2>
+    <span>Node ID :</span> <h2 id='node_id'></h2>
+
+    <p>Notice Title:</p>
+    <marquee behavior="" direction=""> <h1 id='notice_title'></h1></marquee>
+    <p>Notice Body:</p> <div id="notice_body"></div>
+
+
+    <hr>
+    <h2 style="text-align:center"> Testing The Conent Delivery</h2>
+    <hr>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js" integrity="sha512-B4skI5FiLurS86aioJx9VfozI1wjqrn6aTdJH+YQUmCZum/ZibPBTX55k5d9XM6EsKePDInkLVrN7vPmJxc1qA==" crossorigin="anonymous"></script>
+
+    <script>
+        //fetching node_data from local node api
+        fetch('http://localhost:8000/api/node_data/')
+        .then(response => response.json())
+        .then(data => {
+
+            if (data[0]){
+            let main_url = data[0].url 
+            
+
+           
+            fetch(main_url)
+            .then(response => response.json())
+            .then(data => {
+
+                let {class_name,ip_address,school_name,node_id}=data;
+            document.getElementById('school_name').innerHTML=school_name;
+            document.getElementById('ip').innerHTML=ip_address;
+            document.getElementById('node_id').innerHTML=node_id;
+            document.getElementById('class_name').innerHTML=class_name;
+            });
+        };
+        })
+
+        //fetching notice form local node api
+        fetch('http://localhost:8000/api/notice/')
+        .then(response => response.json())
+        .then(data => {
+
+            if (data[0]){
+            let main_url = data[0].url 
+            
+
+           
+            fetch(main_url)
+            .then(response => response.json())
+            .then(data => {
+
+                let {title,body}=data;
+            document.getElementById('notice_title').innerHTML=title;
+            document.getElementById('notice_body').innerHTML=body;
+           
+            });
+        };
+        })
+
+
+    </script>
+    <script>
+        function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+              // Does this cookie string begin with the name we want?
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
+  const csrftoken = getCookie('csrftoken');
+
+
+        let connection = new ReconnectingWebSocket("ws://192.168.1.24:8000/ws/connect/");
+
+        connection.onopen=(e) => {
+           document.getElementById('status').innerHTML="Status : Connected"
+        }
+
+        connection.onmessage = (e) =>{
+
+            const data=JSON.parse(e.data);
+            const notice=data.notice;
+        
+             if (notice){
+                console.log(notice['title'])
+                document.getElementById('notice_title').innerHTML=notice.title;
+                document.getElementById('notice_body').innerHTML=notice.body;
+
+
+                fetch('http://localhost:8000/api/notice/',{
+                method:"POST",
+                headers:{
+                    'Content-Type':'application/json',
+                    "X-CSRFToken": csrftoken ,
+                },
+                body: JSON.stringify(notice),
+            })
+
+            }
+           
+            
+            const node_data = data.node_data;
+            if (node_data){
+            document.getElementById('school_name').innerHTML=node_data.school_name;
+            document.getElementById('ip').innerHTML=node_data.ip_address;
+            document.getElementById('node_id').innerHTML=node_data.node_id;
+            document.getElementById('class_name').innerHTML=node_data.class_name;
+
+            fetch('http://localhost:8000/api/node_data/',{
+                method:"POST",
+                headers:{
+                    'Content-Type':'application/json',
+                    "X-CSRFToken": csrftoken ,
+                },
+                body: JSON.stringify(node_data),
+            })
+       
+
+            .then(response => response.json())
+            .then(data => console.log("SUcess :",data))
+            .catch(error => console.log(error))
+        }
+
+        }
+
+        connection.onclose=(e) =>{
+            document.getElementById('status').innerHTML="Status : disconnected"
+            console.log(e)
+
+        }
+        connection.onerror=(e) =>{
+            console.log(e)
+        }
+
+
+        // let notice = new ReconnectingWebSocket("ws://192.168.1.24:8000/ws/connect/notice/")
+
+
+        // notice.onmessage = (e) =>{
+        //     const data=JSON.parse(e.data);
+        //     console.log(data);
+        //     let {title,body}=data;
+        //     document.getElementById('notice_title').innerHTML=title;
+        //     document.getElementById('notice_body').innerHTML=body;
+
+
+        // }
+
+    </script>
+
+<script>
+
+</script>
+
+</body>
+</html>
