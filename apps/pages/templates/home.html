@@ -8,6 +8,23 @@
 </head>
 <body>
         <p id="status">Status: Disconnect</p>
+        <!-- // time -->
+      
+            <span>Hours</span>
+            <span id='hour'></span>
+    
+        
+        
+            <span>Minutes</span>
+            <span id='minute'></span>
+      
+     
+            <span>Seconds</span>
+            <span id='second'></span>
+      
+
+        <!-- endtime -->
+
     <h1 style="text-align:center;" id='school_name'> Node Home page</h1>
     <span>Class Name : :</span> <h2 style="text-align:center; block:inline-block;" id='class_name'></h2>
     <span>Ip Address :</span> <h2 id='ip'></h2>
@@ -170,8 +187,26 @@
     </script>
 
 <script>
+    // time script
+    const hr=document.getElementById('hour');
+    const min = document.getElementById('minute')
+    const sec = document.getElementById('second')
 
+function showCurrentTime() {
+    let date = new Date();
+    
+    let hour = date.getHours();
+    let munite = date.getMinutes();
+    let second = date.getSeconds();
+    
+    sec.textContent=second;
+    min.textContent=munite;
+    hr.textContent = hour;
+}
+
+setInterval(showCurrentTime,1000)
 </script>
+
 
 </body>
 </html>
