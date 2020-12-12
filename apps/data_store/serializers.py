@@ -10,8 +10,13 @@ class NodeDataSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url','node_id','ip_address','port','mac_address',
                   'school_id','school_name','class_name',]
 
+
+
+
 class NoticeSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Notice
         fields = ['url','title','body']
+
+
