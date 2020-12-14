@@ -38,6 +38,17 @@
     <hr>
     <h2 style="text-align:center"> Testing The Conent Delivery</h2>
     <hr>
+    <ul>
+   <div>
+      Subject: <p id="subject"></p>
+      Unit No: <p id="unit"></p>
+      Unit Name : <p id="unit_name"></p>
+      <video width="320" height="240" controls>
+        <source src="" id="content" type="video/mp4">
+  
+      </video>
+
+   </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js" integrity="sha512-B4skI5FiLurS86aioJx9VfozI1wjqrn6aTdJH+YQUmCZum/ZibPBTX55k5d9XM6EsKePDInkLVrN7vPmJxc1qA==" crossorigin="anonymous"></script>
 
@@ -120,6 +131,18 @@
         {
             const data=JSON.parse(e.data);
             //notice start
+            const course_material=data.course_material;
+            if (course_material){
+                console.log(course_material)
+                document.getElementById('subject').innerHTML=course_material.subject;
+                document.getElementById('unit').innerHTML = course_material.unit;
+                document.getElementById('unit_name').innerHTML=course_material.unit_name;
+                document.getElementById('content').setAttribute('src',"http://192.168.1.24:8000"+course_material.content)
+
+            
+
+            }
+
             const notice=data.notice;
              if (notice){
                 console.log(notice['title'])

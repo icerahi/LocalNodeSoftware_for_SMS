@@ -1,6 +1,11 @@
+from urllib.request import urlretrieve
+
+from django.core.files import File
 from django.db import models
 
 # Create your models here.
+from rest_framework.exceptions import ValidationError
+
 
 class NodeData(models.Model):
     node_id = models.IntegerField(unique=True)
@@ -14,11 +19,13 @@ class NodeData(models.Model):
 
     created = models.DateTimeField(auto_now_add=True)
 
+#store only one object in model
     def save(self, *args, **kwargs):
-        if NodeData.objects.count() > 0:
-            return False  # or you can raise validation error
-        else:
-            super(NodeData, self).save(*args, **kwargs)
+        if not self.pk and NodeData.objects.exists():
+            # if you'll not check for self.pk
+            # then error will also raised in update of exists model
+            raise ValidationError('There is can be only one NodeData instance')
+        return super(NodeData, self).save(*args, **kwargs)
 
     class Meta:
         ordering = ['-created']
@@ -32,4 +39,22 @@ class Notice(models.Model):
     class Meta:
         ordering = ['-created']
 
+
+class CourseMaterial(models.Model):
+    class_name = models.CharField(max_length=30)
+    subject    = models.CharField(max_length=50)
+    unit       = models.CharField(max_length=200)
+    unit_name  = models.TextField()
+    content    = models.FileField()
+
+    created    = models.DateTimeField(auto_now_add=True)
+    updated    = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        constraints=[
+            models.UniqueConstraint(
+                fields=['class_name','subject','unit'],
+                name= "content can't be same"
+            )
+        ]
 

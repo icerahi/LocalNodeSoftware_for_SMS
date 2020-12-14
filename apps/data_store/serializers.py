@@ -1,6 +1,9 @@
+from urllib.request import urlretrieve
+
+from django.core.files import File
 from rest_framework import serializers
 
-from apps.data_store.models import NodeData, Notice
+from apps.data_store.models import NodeData, Notice, CourseMaterial
 
 
 class NodeDataSerializer(serializers.HyperlinkedModelSerializer):
@@ -18,5 +21,12 @@ class NoticeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Notice
         fields = ['url','title','body']
+
+
+class CourseMaterialSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = CourseMaterial
+        fields =['url','class_name','subject','unit','unit_name','content']
+
 
 
