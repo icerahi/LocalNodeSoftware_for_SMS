@@ -40,12 +40,17 @@ class Notice(models.Model):
         ordering = ['-created']
 
 
+def content_file_name(instance,filename):
+    ext = filename.split('.')[-1]
+    filename = f'{instance.pk}.mp4'
+    return filename
+
 class CourseMaterial(models.Model):
     class_name = models.CharField(max_length=30)
     subject    = models.CharField(max_length=50)
     unit       = models.CharField(max_length=200)
     unit_name  = models.TextField()
-    content    = models.FileField()
+    content    = models.FileField(upload_to=content_file_name)
 
     created    = models.DateTimeField(auto_now_add=True)
     updated    = models.DateTimeField(auto_now=True)

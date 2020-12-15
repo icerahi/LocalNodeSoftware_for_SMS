@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     #thirdparty
     'rest_framework',
+    'django_cleanup',
 
     #own apps
     'apps.data_store',

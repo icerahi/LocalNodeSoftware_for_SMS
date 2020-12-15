@@ -40,19 +40,32 @@
     <hr>
     <ul>
    <div>
-      Subject: <p id="subject"></p>
-      Unit No: <p id="unit"></p>
-      Unit Name : <p id="unit_name"></p>
-      <video width="320" height="240" controls>
-        <source src="" id="content" type="video/mp4">
+      Subject: <p id="subject">{{ content.subject}}</p>
+      Unit No: <p id="unit">{{ content.unit}}</p>
+      Unit Name : <p id="unit_name">{{content.unit_name}}</p>
   
-      </video>
+      <video width='400' controls>
+        <source src='{{ content.content.url }}' type='video/mp4'>
+        Your browser does not support the video tag.
+        </video>
 
    </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js" integrity="sha512-B4skI5FiLurS86aioJx9VfozI1wjqrn6aTdJH+YQUmCZum/ZibPBTX55k5d9XM6EsKePDInkLVrN7vPmJxc1qA==" crossorigin="anonymous"></script>
 
     <script>
+        //fetching course_material from local node api
+        fetch("http://localhost:8000/api/course_material/")
+        .then(response => response.json())
+        .then(data => {
+            data = data[0]
+           
+                document.getElementById('subject').innerHTML=data.subject;
+                document.getElementById('unit').innerHTML = data.unit;
+                document.getElementById('unit_name').innerHTML=data.unit_name;
+                document.getElementById('content').setAttribute('src',data.content)
+                
+        })
         //fetching node_data from local node api
         fetch('http://localhost:8000/api/node_data/')
         .then(response => response.json())
@@ -133,12 +146,25 @@
             //notice start
             const course_material=data.course_material;
             if (course_material){
-                console.log(course_material)
-                document.getElementById('subject').innerHTML=course_material.subject;
-                document.getElementById('unit').innerHTML = course_material.unit;
-                document.getElementById('unit_name').innerHTML=course_material.unit_name;
-                document.getElementById('content').setAttribute('src',"http://192.168.1.24:8000"+course_material.content)
 
+                let class_name = course_material.class_name
+                let subject=course_material.subject;
+                let unit= course_material.unit;
+                let unit_name = course_material.unit_name;
+                let content = "http://192.168.1.24:8000"+course_material.content
+                console.log(subject,unit,unit_name,content)
+
+                fetch("http://localhost:8000/api/course_material/",{
+                method:"POST",
+                headers:{
+                    'Content-Type':'application/json',
+                    "X-CSRFToken": csrftoken ,
+                },
+                body: JSON.stringify({"class_name":class_name,"subject":subject,"unit":unit,"unit_name":unit_name,"content":content}),
+            })
+            .then(response => response.json())
+            .then(data => console.log("success",data))
+            .catch(error => console.log(error))
             
 
             }
