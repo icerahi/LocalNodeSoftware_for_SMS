@@ -142,10 +142,13 @@
 
         connection.onmessage = (e) =>
         {
+             
             const data=JSON.parse(e.data);
+             
             //notice start
             const course_material=data.course_material;
             if (course_material){
+                console.log(course_material)
 
                 let class_name = course_material.class_name
                 let subject=course_material.subject;
