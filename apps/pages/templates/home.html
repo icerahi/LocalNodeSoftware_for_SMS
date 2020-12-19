@@ -58,12 +58,7 @@
         fetch("http://localhost:8000/api/course_material/")
         .then(response => response.json())
         .then(data => {
-            data = data[0]
-           
-                document.getElementById('subject').innerHTML=data.subject;
-                document.getElementById('unit').innerHTML = data.unit;
-                document.getElementById('unit_name').innerHTML=data.unit_name;
-                document.getElementById('content').setAttribute('src',data.content)
+            
                 
         })
         //fetching node_data from local node api
@@ -141,23 +136,28 @@
         }
 
 // async function
-// async function DataPost(data){
-//      const response=await fetch("http://localhost:8000/api/course_material/",{
+async function DataPost(data){
+    try {
+        const response=await fetch("http://localhost:8000/api/course_material/",{
                             
-//                             method:"POST",
-//                             headers:{
-//                                 'Content-Type': 'application/json',
-//                                 "X-CSRFToken": csrftoken ,
-//                             },
-//                             body: JSON.stringify(data),
-//                         })
-//                        let output = await response.json()
-//                        console.log("result:",output);
+                            method:"POST",
+                            headers:{
+                                'Content-Type': 'application/json',
+                                "X-CSRFToken": csrftoken ,
+                            },
+                            body: JSON.stringify(data),
+                        })
+                       let output = await response.json()
+                       console.log("result:",output);
 
-                     
-
-//                        await  console.log("test")
-// }
+                
+        
+        }
+        catch(error){
+            console.log(error);
+        }
+                
+}
 //async function
 
         connection.onmessage = (e) =>
@@ -182,26 +182,29 @@
                         let content = "http://192.168.1.24:8000"+item[2]
 
                         let data={"subject":subject,"unit":unit,"unit_name":unit_name,"content":content}
+                        console.log("Data :",data);
+
+                        DataPost(data);
+                        sleep(2000)
+                    //     fetch("http://localhost:8000/api/course_material/",{
+                    //         method:"POST",
+                    //         headers:{
+                    //             'Content-Type': 'application/json',
+                    //             "X-CSRFToken": csrftoken ,
+                    //         },
+                    //         body: JSON.stringify(data),
+                    //     })
+                    //    .then(response => response.json())
+                    //    .then (data => console.log("result:",data))
+                    //    .catch(error => console.log(error))
                         
-                        fetch("http://localhost:8000/api/course_material/",{
-                            method:"POST",
-                            headers:{
-                                'Content-Type': 'application/json',
-                                "X-CSRFToken": csrftoken ,
-                            },
-                            body: JSON.stringify(data),
-                        })
-                       .then(response => response.json())
-                       .then (data => console.log("result:",data))
-                       .catch(error => console.log(error))
-                        
-                    })
+                    // })
                     
                     console.log("one subject done:",subject);
-                }
+                })
 
-                console.log("Done")
-            }
+              
+            }}
 
 
             //notice start
