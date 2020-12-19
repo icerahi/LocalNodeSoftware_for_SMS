@@ -140,38 +140,71 @@
            document.getElementById('status').innerHTML="Status : Connected"
         }
 
+// async function
+// async function DataPost(data){
+//      const response=await fetch("http://localhost:8000/api/course_material/",{
+                            
+//                             method:"POST",
+//                             headers:{
+//                                 'Content-Type': 'application/json',
+//                                 "X-CSRFToken": csrftoken ,
+//                             },
+//                             body: JSON.stringify(data),
+//                         })
+//                        let output = await response.json()
+//                        console.log("result:",output);
+
+                     
+
+//                        await  console.log("test")
+// }
+//async function
+
         connection.onmessage = (e) =>
         {
-             
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+                }
             const data=JSON.parse(e.data);
              
-            //notice start
+            
             const course_material=data.course_material;
             if (course_material){
+
                 console.log(course_material)
+                
+                for (const [key,value] of Object.entries(course_material)){
+                    let subject=key;
+                 
+                    value.forEach(item => {
+                        let unit = item[0]
+                        let unit_name = item[1]
+                        let content = "http://192.168.1.24:8000"+item[2]
 
-                let class_name = course_material.class_name
-                let subject=course_material.subject;
-                let unit= course_material.unit;
-                let unit_name = course_material.unit_name;
-                let content = "http://192.168.1.24:8000"+course_material.content
-                console.log(subject,unit,unit_name,content)
+                        let data={"subject":subject,"unit":unit,"unit_name":unit_name,"content":content}
+                        
+                        fetch("http://localhost:8000/api/course_material/",{
+                            method:"POST",
+                            headers:{
+                                'Content-Type': 'application/json',
+                                "X-CSRFToken": csrftoken ,
+                            },
+                            body: JSON.stringify(data),
+                        })
+                       .then(response => response.json())
+                       .then (data => console.log("result:",data))
+                       .catch(error => console.log(error))
+                        
+                    })
+                    
+                    console.log("one subject done:",subject);
+                }
 
-                fetch("http://localhost:8000/api/course_material/",{
-                method:"POST",
-                headers:{
-                    'Content-Type':'application/json',
-                    "X-CSRFToken": csrftoken ,
-                },
-                body: JSON.stringify({"class_name":class_name,"subject":subject,"unit":unit,"unit_name":unit_name,"content":content}),
-            })
-            .then(response => response.json())
-            .then(data => console.log("success",data))
-            .catch(error => console.log(error))
-            
-
+                console.log("Done")
             }
 
+
+            //notice start
             const notice=data.notice;
              if (notice){
                 console.log(notice['title'])
@@ -213,9 +246,9 @@
                 },
                 body: JSON.stringify(node_data),
             })
-            .then(response => response.json())
-            .then( data => console.log("success",data))
-            .catch(error => console.log(error))
+            // .then(response => response.json())
+            // .then( data => console.log("success",data))
+            // .catch(error => console.log(error))
             }
 
             else{

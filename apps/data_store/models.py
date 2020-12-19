@@ -46,7 +46,6 @@ def content_file_name(instance,filename):
     return filename
 
 class CourseMaterial(models.Model):
-    class_name = models.CharField(max_length=30)
     subject    = models.CharField(max_length=50)
     unit       = models.CharField(max_length=200)
     unit_name  = models.TextField()
@@ -58,7 +57,7 @@ class CourseMaterial(models.Model):
     class Meta:
         constraints=[
             models.UniqueConstraint(
-                fields=['class_name','subject','unit'],
+                fields=['subject','unit'],
                 name= "content can't be same"
             )
         ]
