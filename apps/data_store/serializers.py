@@ -30,7 +30,7 @@ class NoticeSerializer(serializers.HyperlinkedModelSerializer):
 class CourseMaterialSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = CourseMaterial
-        fields =['url','subject','unit','unit_name','content']
+        fields =['url','content_id','class_name','subject','unit','unit_name','content']
 
 
 

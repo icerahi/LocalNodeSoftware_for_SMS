@@ -135,76 +135,31 @@
            document.getElementById('status').innerHTML="Status : Connected"
         }
 
-// async function
-async function DataPost(data){
-    try {
-        const response=await fetch("http://localhost:8000/api/course_material/",{
-                            
-                            method:"POST",
-                            headers:{
-                                'Content-Type': 'application/json',
-                                "X-CSRFToken": csrftoken ,
-                            },
-                            body: JSON.stringify(data),
-                        })
-                       let output = await response.json()
-                       console.log("result:",output);
-
-                
-        
-        }
-        catch(error){
-            console.log(error);
-        }
-                
-}
-//async function
+ 
 
         connection.onmessage = (e) =>
         {
-            function sleep(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-                }
+             
             const data=JSON.parse(e.data);
              
             
             const course_material=data.course_material;
             if (course_material){
 
-                console.log(course_material)
-                
-                for (const [key,value] of Object.entries(course_material)){
-                    let subject=key;
-                 
-                    value.forEach(item => {
-                        let unit = item[0]
-                        let unit_name = item[1]
-                        let content = "http://192.168.1.24:8000"+item[2]
-
-                        let data={"subject":subject,"unit":unit,"unit_name":unit_name,"content":content}
-                        console.log("Data :",data);
-
-                        DataPost(data);
-                        sleep(2000)
-                    //     fetch("http://localhost:8000/api/course_material/",{
-                    //         method:"POST",
-                    //         headers:{
-                    //             'Content-Type': 'application/json',
-                    //             "X-CSRFToken": csrftoken ,
-                    //         },
-                    //         body: JSON.stringify(data),
-                    //     })
-                    //    .then(response => response.json())
-                    //    .then (data => console.log("result:",data))
-                    //    .catch(error => console.log(error))
-                        
-                    // })
-                    
-                    console.log("one subject done:",subject);
+                console.log(course_material);
+             
+                fetch("http://localhost:8000/api/course_material/",{
+                    method:"POST",
+                    headers:{
+                        'Content-Type': 'application/json',
+                        "X-CSRFToken": csrftoken ,
+                    },
+                    body: JSON.stringify(course_material),
                 })
-
+                .then(response => response.json())
+                .then (data => console.log("result:",data))
               
-            }}
+            }
 
 
             //notice start
