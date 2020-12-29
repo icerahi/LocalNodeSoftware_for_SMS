@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8" />
+
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <title>
+        Edutech System
+      </title>
+      <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+      <!--     Fonts and icons     -->
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+       <!-- CSS Files -->
+      <link href="{% static 'assets/css/material-dashboard.css' %}" rel="stylesheet" />
+
+      <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.css" rel="stylesheet"/>
+
+  {% block style %} {% endblock style %}
+
+</head>
+
+<body scroll="yes" style="overflow;"  class="bg-light">
+  <div class="wrapper ">
+    <div class="sidebar " data-color="green" data-background-color="lightgray"  >
+
+      <div class="logo"><a href="#" class="simple-text logo-normal">
+         <img src="{% static 'assets/ets_logo.gif' %}" height="700%" width="70%" alt="" srcset="">
+        </a></div>
+      <div class="sidebar-wrapper ">
+        <ul class="nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+              <i class="material-icons">dashboard</i>
+              <p>হোম</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#">
+              <i class="material-icons">person</i>
+              <p> কলম </p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#">
+              <i class="material-icons">content_paste</i>
+              <p>পড়ালেখা</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#">
+              <i class="material-icons">library_books</i>
+              <p>পরীক্ষা</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#">
+              <i class="material-icons">bubble_chart</i>
+              <p>নোটিশ</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#">
+              <i class="material-icons">location_ons</i>
+              <p>রুটিন</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#">
+              <i class="material-icons">notifications</i>
+              <p>সরাসরি সম্প্রচার</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#">
+              <i class="material-icons">language</i>
+              <p>ভয়েস নির্দেশনা</p>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+   <div class="main-panel">
+      {% block body %} {% endblock body %}
+   </div>
+  </div>
+
+<script>
+    let hour = document.getElementById("hour");
+    let minute = document.getElementById("minute");
+    let second = document.getElementById("second");
+    let day = document.getElementById('day');
+
+    var days = ["Sunday", "Monday", "Tuesday", "Wednestday", "Thusday", "Friday", "Saturday"];
+
+    let show_date_time= () => {
+
+            let datetime = new Date();
+            datetime.toLocaleString('en-US',{hour:"numeric",minute:"numeric",second:"numeric",hour12:true})
+            hour.textContent = datetime.getHours();
+            minute.textContent = ":"+datetime.getMinutes();
+            second.textContent = ":"+datetime.getSeconds();
+            day.textContent = days[datetime.getDay()];
+    }
+setInterval(show_date_time,1000)
+
+
+</script>
+  <!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.js"
+></script>
+</body>
+
+</html>

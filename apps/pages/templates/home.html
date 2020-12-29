@@ -1,287 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebSocket</title>
+{% extends 'base.html' %}
+{% load static %}
 
-</head>
-<body>
-        <p id="status">Status: Disconnect</p>
-        <!-- // time -->
-      
-            <span>Hours</span>
-            <span id='hour'></span>
-    
-        
-        
-            <span>Minutes</span>
-            <span id='minute'></span>
-      
-     
-            <span>Seconds</span>
-            <span id='second'></span>
-      
+{% block body %}
 
-        <!-- endtime -->
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 
-    <h1 style="text-align:center;" id='school_name'> Node Home page</h1>
-    <span>Class Name : :</span> <h2 style="text-align:center; block:inline-block;" id='class_name'></h2>
-    <span>Ip Address :</span> <h2 id='ip'></h2>
-    <span>Node ID :</span> <h2 id='node_id'></h2>
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="javascript:;">হোম</a>
 
-    <p>Notice Title:</p>
-    <marquee behavior="" direction=""> <h1 id='notice_title'></h1></marquee>
-    <p>Notice Body:</p> <div id="notice_body"></div>
+          </div>
+        <small>নোটিশঃ</small><marquee behavior="" direction="left"> বাংলা নববর্ষ উপলক্ষে আগামীকাল ১৪ এপ্রিল ২০২১ সকল শিক্ষা প্রতিষ্ঠান বন্ধ ঘোষণা করা হলো । </marquee>
+
+        </nav>
+
+      <!-- End Navbar -->
+      <div class="container-fluid mt-5">
+        <div class=" justify-content-center">
+            <p class="h1 text-center" href="">পাইকোশা সরকারি প্রাথমিক বিদ্যালয়</p>
+            <h3 class="lead text-center" href="">প্রথম শ্রেণী</h3>
+          </div>
 
 
-    <hr>
-    <h2 style="text-align:center"> Testing The Conent Delivery</h2>
-    <hr>
-    <ul>
-   <div>
-      Subject: <p id="subject">{{ content.subject}}</p>
-      Unit No: <p id="unit">{{ content.unit}}</p>
-      Unit Name : <p id="unit_name">{{content.unit_name}}</p>
-  
-      <video width='400' controls>
-        <source src='{{ content.content.url }}' type='video/mp4'>
-        Your browser does not support the video tag.
-        </video>
+    </div>
+      <div class="content m-0">
+        <div class="row">
+        <div class="col-md-5">
+            <div class="card shadow-2-strong">
+              <div class="card-header card-header-danger shadow-1-strong">
+                <h4 class="card-title ">পড়ালেখা</h4>
 
-   </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js" integrity="sha512-B4skI5FiLurS86aioJx9VfozI1wjqrn6aTdJH+YQUmCZum/ZibPBTX55k5d9XM6EsKePDInkLVrN7vPmJxc1qA==" crossorigin="anonymous"></script>
+                <p class="card-category">বিষয়সমুহ</p>
+              </div>
+              <div class="card-body header">
 
-    <script>
-        //fetching course_material from local node api
-        fetch("http://localhost:8000/api/course_material/")
-        .then(response => response.json())
-        .then(data => {
-            
-                
-        })
-        //fetching node_data from local node api
-        fetch('http://localhost:8000/api/node_data/')
-        .then(response => response.json())
-        .then(data => {
+                    <div class="row justify-content-center">
+                        <div class="col-md-3 shadow-3-strong rounded-pill m-1">
+                            <img
+                            src="{% static 'assets/bangla.jpg' %}"
+                            class="figure-img img-fluid rounded "
+                            alt="..."
+                          />
+                          <figcaption class="figure-caption text-center">বাংলা</figcaption>
+                            </div>
+                            <div class="col-md-3 shadow-3-strong rounded-pill m-1">
+                                <img
+                                src="{% static 'assets/english.jpg' %}"
+                                class="figure-img img-fluid rounded "
+                                alt="..."
+                              />
+                              <figcaption class="figure-caption text-center">বাংলা</figcaption>
+                                </div>
+                                <div class="col-md-3 shadow-3-strong rounded-pill m-1">
+                                    <img
+                                    src="./assets/math.jpg"
+                                    class="figure-img img-fluid rounded "
+                                    alt="..."
+                                  />
+                                  <figcaption class="figure-caption text-center">বাংলা</figcaption>
+                                    </div>
 
-            if (data[0]){
-            let main_url = data[0].url 
-            
-
-           
-            fetch(main_url)
-            .then(response => response.json())
-            .then(data => {
-
-                let {class_name,ip_address,school_name,node_id}=data;
-            document.getElementById('school_name').innerHTML=school_name;
-            document.getElementById('ip').innerHTML=ip_address;
-            document.getElementById('node_id').innerHTML=node_id;
-            document.getElementById('class_name').innerHTML=class_name;
-            });
-        };
-        })
-
-        //fetching notice form local node api
-        fetch('http://localhost:8000/api/notice/')
-        .then(response => response.json())
-        .then(data => {
-
-            if (data[0]){
-            let main_url = data[0].url 
-            
-
-           
-            fetch(main_url)
-            .then(response => response.json())
-            .then(data => {
-
-                let {title,body}=data;
-            document.getElementById('notice_title').innerHTML=title;
-            document.getElementById('notice_body').innerHTML=body;
-           
-            });
-        };
-        })
+                                    <div class="col-md-3 shadow-3-strong rounded-pill m-1">
+                                        <img
+                                        src="{% static 'assets/english.jpg' %}"
+                                        class="figure-img img-fluid rounded "
+                                        alt="..."
+                                      />
+                                      <figcaption class="figure-caption text-center">বাংলা</figcaption>
+                                        </div>
+                                        <div class="col-md-3 shadow-3-strong rounded-pill m-1">
+                                            <img
+                                            src="{% static 'assets/math.jpg' %}"
+                                            class="figure-img img-fluid rounded "
+                                            alt="..."
+                                          />
+                                          <figcaption class="figure-caption text-center">বাংলা</figcaption>
+                                            </div>
 
 
-    </script>
 
-<script>
-     function getCookie(name) {
-      let cookieValue = null;
-      if (document.cookie && document.cookie !== '') {
-          const cookies = document.cookie.split(';');
-          for (let i = 0; i < cookies.length; i++) {
-              const cookie = cookies[i].trim();
-              // Does this cookie string begin with the name we want?
-              if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                  break;
-              }
-          }
-      }
-      return cookieValue;
-  }
-  
-  const csrftoken = getCookie('csrftoken');
+                                </div>
+
+              </div>
+            </div>
+          </div>
 
 
-        let connection = new ReconnectingWebSocket("ws://192.168.1.24:8000/ws/connect/");
+          <div class="col-md-3">
+            <div class="card shadow-2-strong">
+              <div class="card-header card-header-success shadow-1-strong">
+                <div class="row">
+                    <div class="col-md-7 p-0 m-0">Time:
+                        <span class="h5" id="hour"></span>
+                        <span class="h5" id="minute"></span>
+                        <span class="h5" id="second"></span>
+                    </div>
+                    <div class="col-md-5 p-0 m-0">
+                        <span class="h5" id="day"></span>
 
-        connection.onopen=(e) => {
-           document.getElementById('status').innerHTML="Status : Connected"
-        }
-
- 
-
-        connection.onmessage = (e) =>
-        {
-             
-            const data=JSON.parse(e.data);
-             
-            
-            const course_material=data.course_material;
-            if (course_material){
-
-                console.log(course_material);
-             
-                fetch("http://localhost:8000/api/course_material/",{
-                    method:"POST",
-                    headers:{
-                        'Content-Type': 'application/json',
-                        "X-CSRFToken": csrftoken ,
-                    },
-                    body: JSON.stringify(course_material),
-                })
-                .then(response => response.json())
-                .then (data => console.log("result:",data))
-              
-            }
+                    </div>
+                </div>
+              </div>
+              <div class="card-body header">
 
 
-            //notice start
-            const notice=data.notice;
-             if (notice){
-                console.log(notice['title'])
-                document.getElementById('notice_title').innerHTML=notice.title;
-                document.getElementById('notice_body').innerHTML=notice.body;
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
 
 
-                fetch('http://localhost:8000/api/notice/',{
-                method:"POST",
-                headers:{
-                    'Content-Type':'application/json',
-                    "X-CSRFToken": csrftoken ,
-                },
-                body: JSON.stringify(notice),
-            })}
-            //notice end
-           
-           //node data start
-            const node_data = data.node_data;
-           
-            if (node_data){
-            document.getElementById('school_name').innerHTML=node_data.school_name;
-            document.getElementById('ip').innerHTML=node_data.ip_address;
-            document.getElementById('node_id').innerHTML=node_data.node_id;
-            document.getElementById('class_name').innerHTML=node_data.class_name;
-
-           const node_data_url= 'http://localhost:8000/api/node_data/'
-           
-           fetch (node_data_url)
-          .then(response => response.json())
-          .then(data => {
-              if (data[0]){
-
-                fetch(data[0].url,{
-                method:"PUT",
-                headers:{
-                    'Content-Type':'application/json',
-                    "X-CSRFToken": csrftoken ,
-                },
-                body: JSON.stringify(node_data),
-            })
-            // .then(response => response.json())
-            // .then( data => console.log("success",data))
-            // .catch(error => console.log(error))
-            }
-
-            else{
-                fetch(node_data_url,{
-                method:"POST",
-                headers:{
-                    'Content-Type':'application/json',
-                    "X-CSRFToken": csrftoken ,
-                },
-                body: JSON.stringify(node_data),
-            })
-
-            .then(response => response.json())
-            .then( data => console.log("success",data))
-            .catch(error => console.log(error))}
-            
-          })
-
-           
- 
-           
-
-            
-        }
- 
-          }
-
-        connection.onclose=(e) =>{
-            document.getElementById('status').innerHTML="Status : disconnected"
-            console.log(e)
-
-        };
-        connection.onerror=(e) =>{
-            console.log(e)
-        };
-
-    
-        // let notice = new ReconnectingWebSocket("ws://192.168.1.24:8000/ws/connect/notice/")
 
 
-        // notice.onmessage = (e) =>{
-        //     const data=JSON.parse(e.data);
-        //     console.log(data);
-        //     let {title,body}=data;
-        //     document.getElementById('notice_title').innerHTML=title;
-        //     document.getElementById('notice_body').innerHTML=body;
-
-
-        // }
-
- </script>
-       
-    
-
-<script>
-    // time script
-    const hr=document.getElementById('hour');
-    const min = document.getElementById('minute')
-    const sec = document.getElementById('second')
-
-function showCurrentTime() {
-    let date = new Date();
-    
-    let hour = date.getHours();
-    let munite = date.getMinutes();
-    let second = date.getSeconds();
-    
-    sec.textContent=second;
-    min.textContent=munite;
-    hr.textContent = hour;
-}
-
-setInterval(showCurrentTime,1000)
-</script>
-
-
-</body>
-</html>
+{% endblock body %}

@@ -7,8 +7,10 @@ from apps.data_store.models import Notice, CourseMaterial
 
 
 def home(request):
-    context={"content":CourseMaterial.objects.first()}
-    return render(request,'home.html',context=context)
+    return render(request,'home.html')
+
+def pen(request):
+    return render(request,'pen.html')
 
 
 class NoticeListView(ListView):
