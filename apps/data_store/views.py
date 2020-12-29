@@ -5,7 +5,7 @@ from urllib.request import urlretrieve, urlcleanup
 from django.core.files import File
 from django.http import Http404
 from django.shortcuts import render
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, filters
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
 from rest_framework.parsers import MultiPartParser, FormParser
@@ -41,17 +41,30 @@ class NodeDataViewSet(viewsets.ModelViewSet):
 
 
 class CourseMaterialViewSet(viewsets.ModelViewSet):
+    search_fields=['content_id']
+    filter_backends = [filters.SearchFilter,]
     queryset = CourseMaterial.objects.all()
     serializer_class = CourseMaterialSerializer
 
 
 
     def create(self, request, *args, **kwargs):
-        tempname, _ = urlretrieve(request.data['content'] )
-        print(tempname)
-        request.data['content']= File(open(tempname,'rb'))#it's working
-        urlcleanup()
-        serializer = self.get_serializer(data=request.data)
+        try:
+            for i in request.data:
+               tempname, _ = urlretrieve(i['content'] )
+               print(tempname)
+               i['content']= File(open(tempname,'rb'))#it's working
+               urlcleanup()
+
+               serializer = self.get_serializer(data=request.data, many=True)
+        except:
+            tempname, _ = urlretrieve(request.data['content'])
+            print(tempname)
+            request.data['content'] = File(open(tempname, 'rb'))  # it's working
+            urlcleanup()
+            serializer = self.get_serializer(data=request.data)
+
+
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
@@ -65,6 +78,14 @@ class CourseMaterialViewSet(viewsets.ModelViewSet):
 class NoticeViewSet(viewsets.ModelViewSet):
     queryset = Notice.objects.all()
     serializer_class = NoticeSerializer
+
+    def create(self, request, *args, **kwargs):
+
+        serializer = self.get_serializer(data=request.data,many=True)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
 
