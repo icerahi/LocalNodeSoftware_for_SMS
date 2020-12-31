@@ -22,27 +22,48 @@
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.css" rel="stylesheet"/>
 
+
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+    <!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.css"
+  rel="stylesheet"
+/>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
   {% block style %} {% endblock style %}
 
 </head>
 
-<body scroll="yes" style="overflow;"  class="bg-light">
+<body scroll="no" style="overflow:hidden;"  class="bg-light">
   <div class="wrapper ">
     <div class="sidebar " data-color="green" data-background-color="lightgray"  >
 
       <div class="logo"><a href="#" class="simple-text logo-normal">
          <img src="{% static 'assets/ets_logo.gif' %}" height="700%" width="70%" alt="" srcset="">
         </a></div>
+      {% with request.resolver_match.url_name as url_name  %}
       <div class="sidebar-wrapper ">
         <ul class="nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">
+          <li class="nav-item {% if url_name == 'home' %} active {% endif %}">
+            <a class="nav-link" href="{% url 'home' %}">
               <i class="material-icons">dashboard</i>
               <p>হোম</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#">
+          <li class="nav-item {% if url_name == 'pen'%}active {% endif %} ">
+            <a class="nav-link" href="{% url 'pen' %}">
               <i class="material-icons">person</i>
               <p> কলম </p>
             </a>
@@ -85,9 +106,16 @@
           </li>
 
         </ul>
+        {% endwith %}
       </div>
     </div>
-   <div class="main-panel">
+   <div class="main-panel" id="main_panel">
+
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+          {% block nav %} {% endblock nav %}
+        </nav>
+
       {% block body %} {% endblock body %}
    </div>
   </div>

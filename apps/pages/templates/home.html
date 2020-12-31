@@ -1,18 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block body %}
-
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-
+{% block nav %}
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="javascript:;">হোম</a>
+                    <small>নোটিশঃ</small><marquee behavior="" direction="left"> বাংলা নববর্ষ উপলক্ষে আগামীকাল ১৪ এপ্রিল ২০২১ সকল শিক্ষা প্রতিষ্ঠান বন্ধ ঘোষণা করা হলো । </marquee>
 
           </div>
-        <small>নোটিশঃ</small><marquee behavior="" direction="left"> বাংলা নববর্ষ উপলক্ষে আগামীকাল ১৪ এপ্রিল ২০২১ সকল শিক্ষা প্রতিষ্ঠান বন্ধ ঘোষণা করা হলো । </marquee>
-
-        </nav>
+{% endblock nav %}
+{% block body %}
 
       <!-- End Navbar -->
       <div class="container-fluid mt-5">
@@ -23,6 +19,7 @@
 
 
     </div>
+
       <div class="content m-0">
         <div class="row">
         <div class="col-md-5">
@@ -53,7 +50,7 @@
                                 </div>
                                 <div class="col-md-3 shadow-3-strong rounded-pill m-1">
                                     <img
-                                    src="./assets/math.jpg"
+                                    src="{% static 'assets/math.jpg' %}"
                                     class="figure-img img-fluid rounded "
                                     alt="..."
                                   />

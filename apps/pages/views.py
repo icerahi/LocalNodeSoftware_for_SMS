@@ -12,6 +12,11 @@ def home(request):
 def pen(request):
     return render(request,'pen.html')
 
+def content_list(request):
+    return render(request,'content_list.html')
+
+def content(request):
+    return render(request,'content.html')
 
 class NoticeListView(ListView):
     template_name = 'notice_list.html'
@@ -20,3 +25,5 @@ class NoticeListView(ListView):
 class NoticeDetailView(DetailView):
     template_name = "notice_detail.html"
     model = Notice
+
+

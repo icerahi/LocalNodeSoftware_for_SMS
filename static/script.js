@@ -10,7 +10,7 @@ const saveStorageBtn = document.getElementById('save-storage');
 const loadStorageBtn = document.getElementById('load-storage');
 const clearStorageBtn = document.getElementById('clear-storage');
 const downloadBtn = document.getElementById('download');
-const { body } = document;
+const body = document.getElementById("pen");
 
 // Global Variables
 const canvas = document.createElement('canvas');

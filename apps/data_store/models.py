@@ -46,7 +46,7 @@ def content_file_name(instance,filename):
     return filename
 
 class CourseMaterial(models.Model):
-    content_id = models.IntegerField(unique=True)
+   # content_id = models.IntegerField(unique=True,null=True,blank=True)
     class_name = models.CharField(max_length=20)
     subject    = models.CharField(max_length=50)
     unit       = models.CharField(max_length=200)
