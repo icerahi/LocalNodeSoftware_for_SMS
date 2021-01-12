@@ -42,12 +42,16 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_cleanup',
 
+
     #own apps
     'apps.data_store',
     'apps.pages',
 ]
 
+
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware', #debug toolbar
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

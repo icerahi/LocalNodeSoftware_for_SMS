@@ -130,6 +130,8 @@ function getMousePosition(event) {
   };
 }
 
+
+
 // Mouse Down
 canvas.addEventListener('mousedown', (event) => {
   isMouseDown = true;
@@ -141,8 +143,38 @@ canvas.addEventListener('mousedown', (event) => {
   context.strokeStyle = currentColor;
 });
 
+//pointer down
+canvas.addEventListener('pointerdown', (event) => {
+  isMouseDown = true;
+  const currentPosition = getMousePosition(event);
+  context.moveTo(currentPosition.x, currentPosition.y);
+  context.beginPath();
+  context.lineWidth = currentSize;
+  context.lineCap = 'round';
+  context.strokeStyle = currentColor;
+});
+
 // Mouse Move
 canvas.addEventListener('mousemove', (event) => {
+    event.preventDefault();
+  if (isMouseDown) {
+    const currentPosition = getMousePosition(event);
+    context.lineTo(currentPosition.x, currentPosition.y);
+    context.stroke();
+    storeDrawn(
+      currentPosition.x,
+      currentPosition.y,
+      currentSize,
+      currentColor,
+      isEraser,
+    );
+  } else {
+    storeDrawn(undefined);
+  }
+});
+// pointer Move
+canvas.addEventListener('pointermove', (event) => {
+    event.preventDefault();
   if (isMouseDown) {
     const currentPosition = getMousePosition(event);
     context.lineTo(currentPosition.x, currentPosition.y);
@@ -163,6 +195,51 @@ canvas.addEventListener('mousemove', (event) => {
 canvas.addEventListener('mouseup', () => {
   isMouseDown = false;
 });
+
+ //pointer up
+canvas.addEventListener('pointerup', () => {
+  isMouseDown = false;
+});
+
+// touch screen
+canvas.addEventListener('touchstart', (event) => {
+  isMouseDown = true;
+
+   const boundaries = canvas.getBoundingClientRect();
+  context.moveTo(event.touches[0].pageX-boundaries.left,event.touches[0].pageY-boundaries.top);
+  context.beginPath();
+  context.lineWidth = currentSize;
+  context.lineCap = 'round';
+  context.strokeStyle = currentColor;
+});
+
+canvas.addEventListener('touchmove',(event) =>{
+    event.preventDefault();
+    const boundaries = canvas.getBoundingClientRect();
+
+    if (isMouseDown){
+        context.lineTo(event.touches[0].pageX-boundaries.left,event.touches[0].pageY-boundaries.top);
+        context.stroke();
+        storeDrawn(
+            event.touches[0].pageX-boundaries.left,
+            event.touches[0].pageY-boundaries.top,
+              currentSize,
+              currentColor,
+              isEraser,
+            );
+    }
+
+    else{
+    storeDrawn(undefined)
+    }
+
+})
+
+canvas.addEventListener('touchend', () => {
+  isMouseDown = false;
+});
+
+ // end touch screen
 
 // Save to Local Storage
 saveStorageBtn.addEventListener('click', () => {

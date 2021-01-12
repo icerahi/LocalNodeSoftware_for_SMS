@@ -57,13 +57,13 @@
       <div class="sidebar-wrapper ">
         <ul class="nav">
           <li class="nav-item {% if url_name == 'home' %} active {% endif %}">
-            <a class="nav-link" href="{% url 'home' %}">
+            <a id="home" class="nav-link" href="{% url 'home' %}">
               <i class="material-icons">dashboard</i>
               <p>হোম</p>
             </a>
           </li>
           <li class="nav-item {% if url_name == 'pen'%}active {% endif %} ">
-            <a class="nav-link" href="{% url 'pen' %}">
+            <a id="" class="nav-link" href="{% url 'pen' %}">
               <i class="material-icons">person</i>
               <p> কলম </p>
             </a>
@@ -120,32 +120,15 @@
    </div>
   </div>
 
-<script>
-    let hour = document.getElementById("hour");
-    let minute = document.getElementById("minute");
-    let second = document.getElementById("second");
-    let day = document.getElementById('day');
 
-    var days = ["Sunday", "Monday", "Tuesday", "Wednestday", "Thusday", "Friday", "Saturday"];
-
-    let show_date_time= () => {
-
-            let datetime = new Date();
-            datetime.toLocaleString('en-US',{hour:"numeric",minute:"numeric",second:"numeric",hour12:true})
-            hour.textContent = datetime.getHours();
-            minute.textContent = ":"+datetime.getMinutes();
-            second.textContent = ":"+datetime.getSeconds();
-            day.textContent = days[datetime.getDay()];
-    }
-setInterval(show_date_time,1000)
-
-
-</script>
   <!-- MDB -->
 <script
 type="text/javascript"
 src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.js"
 ></script>
 </body>
+
+
+
 
 </html>

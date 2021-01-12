@@ -1,14 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block nav %}
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="{% url 'content_list' %}">পিছনে</a>/
 
-{% block body %}
+          </div>
+{% endblock nav %}
+ {% block body %}
 
 
 
         <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-              <video controls><source src="http://localhost:8000/media/None.mp4" type='video/mp4'>
-    Your browser does not support the video tag.
-    </video>
+
+       <video volume="10" width="1280" height="720"  loop playsinline autoplay controls >
+      <source src="http://192.168.1.24:8000/media/None.mp4" type="video/mp4" />
+         </video>
         </div>
 
 {% endblock body %}

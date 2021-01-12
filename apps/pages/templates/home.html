@@ -33,11 +33,11 @@
 
                     <div class="row justify-content-center">
                         <div class="col-md-3 shadow-3-strong rounded-pill m-1">
-                            <img
+                            <a href="{% url 'content_list' %}"><img
                             src="{% static 'assets/bangla.jpg' %}"
                             class="figure-img img-fluid rounded "
                             alt="..."
-                          />
+                          /></a>
                           <figcaption class="figure-caption text-center">বাংলা</figcaption>
                             </div>
                             <div class="col-md-3 shadow-3-strong rounded-pill m-1">
@@ -111,5 +111,25 @@
 
 
 
+<script>
+    let hour = document.getElementById("hour");
+    let minute = document.getElementById("minute");
+    let second = document.getElementById("second");
+    let day = document.getElementById('day');
 
+    var days = ["Sunday", "Monday", "Tuesday", "Wednestday", "Thusday", "Friday", "Saturday"];
+
+    let show_date_time= () => {
+
+            let datetime = new Date();
+            datetime.toLocaleString('en-US',{hour:"numeric",minute:"numeric",second:"numeric",hour12:true})
+            hour.textContent = datetime.getHours();
+            minute.textContent = ":"+datetime.getMinutes();
+            second.textContent = ":"+datetime.getSeconds();
+            day.textContent = days[datetime.getDay()];
+    }
+setInterval(show_date_time,1000)
+
+
+</script>
 {% endblock body %}

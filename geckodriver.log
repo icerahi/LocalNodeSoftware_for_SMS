@@ -1,0 +1,205 @@
+1610013599944	geckodriver	INFO	Listening on 127.0.0.1:49889
+1610013599948	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--start-maximized" "--kiosk" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilenewkSQ"
+console.info: MINT: Trying to use the system region (based on LANG).
+console.info: MINT: System region is US
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610013605462	Marionette	INFO	Listening on port 46019
+1610013605482	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.info: MINT: Loading search-config defaults.
+JavaScript error: resource://gre/modules/TelemetryUtils.jsm, line 159: TypeError: date is undefined
+JavaScript error: http://localhost:8000/pen/, line 231: TypeError: hour is null
+JavaScript error: http://localhost:8000/pen/, line 231: TypeError: hour is null
+JavaScript error: http://localhost:8000/pen/, line 231: TypeError: hour is null
+JavaScript error: http://localhost:8000/pen/, line 231: TypeError: hour is null
+JavaScript error: http://localhost:8000/pen/, line 231: TypeError: hour is null
+JavaScript error: http://localhost:8000/content_list/, line 325: TypeError: hour is null
+JavaScript error: http://localhost:8000/content_list/, line 325: TypeError: hour is null
+JavaScript error: http://localhost:8000/content/, line 151: TypeError: hour is null
+JavaScript error: http://localhost:8000/content/, line 151: TypeError: hour is null
+JavaScript error: http://localhost:8000/content/, line 151: TypeError: hour is null
+JavaScript error: http://localhost:8000/content/, line 151: TypeError: hour is null
+JavaScript error: http://localhost:8000/content/, line 151: TypeError: hour is null
+JavaScript error: http://localhost:8000/content/, line 151: TypeError: hour is null
+JavaScript error: http://localhost:8000/content/, line 151: TypeError: hour is null
+JavaScript error: http://localhost:8000/content/, line 151: TypeError: hour is null
+JavaScript error: http://localhost:8000/content/, line 151: TypeError: hour is null
+JavaScript error: http://localhost:8000/content/, line 151: TypeError: hour is null
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 568: TypeError: this.contentWindow is null
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 225: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: resource://activity-stream/lib/ASRouter.jsm, line 987: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIObserverService.removeObserver]
+1610013678490	Marionette	INFO	Stopped listening on port 46019
+1610013686420	geckodriver	INFO	Listening on 127.0.0.1:46605
+1610013686425	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--start-maximized" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileCXb79q"
+console.info: MINT: Trying to use the system region (based on LANG).
+console.info: MINT: System region is US
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610013692877	Marionette	INFO	Listening on port 33655
+1610013692962	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.info: MINT: Loading search-config defaults.
+JavaScript error: resource://gre/modules/TelemetryUtils.jsm, line 159: TypeError: date is undefined
+JavaScript error: resource://activity-stream/lib/ASRouter.jsm, line 987: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIObserverService.removeObserver]
+1610013718350	Marionette	INFO	Stopped listening on port 33655
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1610013719308	geckodriver	INFO	Listening on 127.0.0.1:50045
+1610013719312	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--start-fullscreen" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileR0bh5K"
+console.info: MINT: Trying to use the system region (based on LANG).
+console.info: MINT: System region is US
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610013726205	Marionette	INFO	Listening on port 33117
+1610013726265	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.info: MINT: Loading search-config defaults.
+JavaScript error: resource://gre/modules/TelemetryUtils.jsm, line 159: TypeError: date is undefined
+JavaScript error: resource://activity-stream/lib/ASRouter.jsm, line 987: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIObserverService.removeObserver]
+1610013762566	Marionette	INFO	Stopped listening on port 33117
+1610015781458	geckodriver	INFO	Listening on 127.0.0.1:52261
+1610015781462	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--start-fullscreen" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileywr8s7"
+console.info: MINT: Trying to use the system region (based on LANG).
+console.info: MINT: System region is US
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610015787164	Marionette	INFO	Listening on port 36813
+1610015787207	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.info: MINT: Loading search-config defaults.
+JavaScript error: resource://gre/modules/TelemetryUtils.jsm, line 159: TypeError: date is undefined
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1610015808481	geckodriver	INFO	Listening on 127.0.0.1:33571
+1610015808486	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--start-fullscreen" "--kiosk" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileeYvLx9"
+console.info: MINT: Trying to use the system region (based on LANG).
+console.info: MINT: System region is US
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610015813648	Marionette	INFO	Listening on port 46835
+1610015813717	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.info: MINT: Loading search-config defaults.
+JavaScript error: resource://gre/modules/TelemetryUtils.jsm, line 159: TypeError: date is undefined
+1610015840310	geckodriver	INFO	Listening on 127.0.0.1:36755
+1610015840315	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--start-fullscreen" "--kiosk" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilen4nfIf"
+console.info: MINT: Trying to use the system region (based on LANG).
+console.info: MINT: System region is US
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610015846367	Marionette	INFO	Listening on port 45583
+1610015846469	Marionette	WARN	TLS certificate errors will be ignored for this session
+1610015846549	Marionette	ERROR	[21] No reply from Marionette:Register
+Marionette threw an error: TypeError: this.curBrowser.contentBrowser is null
+GeckoDriver.prototype.navigateTo@chrome://marionette/content/driver.js:1207:3
+
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+console.info: MINT: Loading search-config defaults.
+JavaScript error: resource://gre/modules/TelemetryUtils.jsm, line 159: TypeError: date is undefined
+JavaScript error: resource:///modules/CustomizableUI.jsm, line 5176: TypeError: win is null
+JavaScript error: resource://activity-stream/lib/ASRouter.jsm, line 987: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIObserverService.removeObserver]
+1610015853158	Marionette	INFO	Stopped listening on port 46835
+JavaScript error: resource:///modules/CustomizableUI.jsm, line 5176: TypeError: win is null
+JavaScript error: resource://activity-stream/lib/ASRouter.jsm, line 987: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIObserverService.removeObserver]
+1610015855566	Marionette	INFO	Stopped listening on port 45583
+1610015857599	geckodriver	INFO	Listening on 127.0.0.1:41669
+1610015857603	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--start-fullscreen" "--kiosk" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileK0DOg0"
+console.info: MINT: Trying to use the system region (based on LANG).
+console.info: MINT: System region is US
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610015862384	Marionette	INFO	Listening on port 34475
+1610015862434	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.info: MINT: Loading search-config defaults.
+JavaScript error: resource://gre/modules/TelemetryUtils.jsm, line 159: TypeError: date is undefined
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+Exiting due to channel error.
+1610015890186	geckodriver	INFO	Listening on 127.0.0.1:52177
+1610015890190	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--start-fullscreen" "--kiosk" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileZk1e2W"
+console.info: MINT: Trying to use the system region (based on LANG).
+console.info: MINT: System region is US
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610015895196	Marionette	INFO	Listening on port 40071
+1610015895228	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.info: MINT: Loading search-config defaults.
+JavaScript error: resource://gre/modules/TelemetryUtils.jsm, line 159: TypeError: date is undefined
+1610016002294	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+Exiting due to channel error.
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+1610016013929	geckodriver	INFO	Listening on 127.0.0.1:58211
+1610016013933	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--start-fullscreen" "--kiosk" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileoioRJ4"
+console.info: MINT: Trying to use the system region (based on LANG).
+console.info: MINT: System region is US
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610016018721	Marionette	INFO	Listening on port 45193
+1610016018765	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.info: MINT: Loading search-config defaults.
+JavaScript error: resource://gre/modules/TelemetryUtils.jsm, line 159: TypeError: date is undefined
+JavaScript error: resource://activity-stream/lib/ASRouter.jsm, line 987: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIObserverService.removeObserver]
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1610016225328	Marionette	INFO	Stopped listening on port 45193
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1610016226643	geckodriver	INFO	Listening on 127.0.0.1:59883
+1610016226648	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--start-fullscreen" "--kiosk" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileO7iLT3"
+console.info: MINT: Trying to use the system region (based on LANG).
+console.info: MINT: System region is US
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610016231576	Marionette	INFO	Listening on port 33699
+1610016231679	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.info: MINT: Loading search-config defaults.
+JavaScript error: resource://gre/modules/TelemetryUtils.jsm, line 159: TypeError: date is undefined
+JavaScript error: resource://activity-stream/lib/ASRouter.jsm, line 987: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIObserverService.removeObserver]
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1610016372068	Marionette	INFO	Stopped listening on port 33699
+1610016391138	geckodriver	INFO	Listening on 127.0.0.1:60439
+1610016391142	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--start-fullscreen" "--kiosk" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileTSgbTz"
+console.info: MINT: Trying to use the system region (based on LANG).
+console.info: MINT: System region is US
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1610016397601	Marionette	INFO	Listening on port 33379
+1610016397676	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.info: MINT: Loading search-config defaults.
+JavaScript error: resource://gre/modules/TelemetryUtils.jsm, line 159: TypeError: date is undefined
+JavaScript error: chrome://browser/content/tabbrowser.js, line 5235: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+Marionette threw an error: [Exception... "Failure"  nsresult: "0x80004005 (NS_ERROR_FAILURE)"  location: "JS frame :: chrome://marionette/content/browser.js :: get rect :: line 243"  data: no]
+get rect@chrome://marionette/content/browser.js:243:7
+GeckoDriver.prototype.fullscreenWindow@chrome://marionette/content/driver.js:3367:3
+
+JavaScript error: resource:///modules/CustomizableUI.jsm, line 5176: TypeError: win is null
+JavaScript error: resource://activity-stream/lib/ASRouter.jsm, line 987: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIObserverService.removeObserver]
+1610016548379	Marionette	INFO	Stopped listening on port 33379
