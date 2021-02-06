@@ -126,9 +126,25 @@
 type="text/javascript"
 src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.js"
 ></script>
+
+
+<!-- speech recognition -->
+<script>
+
+window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+
+if ('SpeechRecognition' in window){
+	console.log("supported speech");
+}
+else{
+consle.error("speech not suported");
+}
+const recognition = new window.SpeechRecognition();
+recognition.continuous = true;
+recognition.onresult = (event)=>{
+console.log('transscript:',event.results[event.results.length -1][0].transcript);
+}
+recognition.start();
+</script>
 </body>
-
-
-
-
 </html>
