@@ -7,7 +7,7 @@ from apps.data_store.models import Notice, CourseMaterial
 
 
 def home(request):
-    return render(request,'test.html')
+    return render(request,'home.html')
 
 def pen(request):
     return render(request,'pen.html')

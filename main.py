@@ -4,7 +4,7 @@ from selenium.webdriver import Firefox,Chrome
 from selenium.webdriver.chrome.options import Options
 import os
 def server():
-    os.system('python manage.py runserver')
+    os.system('python manage.py runserver 0.0.0.0:8000')
 
 def screen():
     options = Options()
