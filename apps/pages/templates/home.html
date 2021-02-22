@@ -31,52 +31,23 @@
               </div>
               <div class="card-body header">
 
-                    <div class="row justify-content-center">
-                        <div class="col-md-3 shadow-3-strong rounded-pill m-1">
-                            <a href="{% url 'content_list' %}"><img
-                            src="{% static 'assets/bangla.jpg' %}"
+                    <div class="row justify-content-center text-center">
+                        {% for subject in subjects %}
+                        <div onclick="window.location.href='{% url 'content_list' subject=subject.subject %}'" class="col-md-3 shadow-3-strong bg-success rounded m-1  ">
+                            <a href="{% url 'content_list' subject=subject.subject %}"><img
+                            src="{% static 'book.png' %}"
                             class="figure-img img-fluid rounded "
                             alt="..."
-                          /></a>
-                          <figcaption class="figure-caption text-center">বাংলা</figcaption>
-                            </div>
-                            <div class="col-md-3 shadow-3-str m-1">
-                                <img
-                                src="{% static 'assets/english.jpg' %}"
-                                class="figure-img img-fluid rounded "
-                                alt="..."
-                              />
-                              <figcaption class="figure-caption text-center">বাংলা</figcaption>
-                                </div>
-                                <div class="col-md-3 shadow-3-strong rounded-pill m-1">
-                                    <img
-                                    src="{% static 'assets/math.jpg' %}"
-                                    class="figure-img img-fluid rounded "
-                                    alt="..."
-                                  />
-                                  <figcaption class="figure-caption text-center">বাংলা</figcaption>
-                                    </div>
+                          />
 
-                                    <div class="col-md-3 shadow-3-strong rounded-pill m-1">
-                                        <img
-                                        src="{% static 'assets/english.jpg' %}"
-                                        class="figure-img img-fluid rounded "
-                                        alt="..."
-                                      />
-                                      <figcaption class="figure-caption text-center">বাংলা</figcaption>
-                                        </div>
-                                        <div class="col-md-3 shadow-3-strong rounded-pill m-1">
-                                            <img
-                                            src="{% static 'assets/math.jpg' %}"
-                                            class="figure-img img-fluid rounded "
-                                            alt="..."
-                                          />
-                                          <figcaption class="figure-caption text-center">বাংলা</figcaption>
-                                            </div>
+                            </a>
+                            <strong class="m-0 p-0 ">{{subject.subject}}</strong>
+                             </div>
+                        {% empty %}
+                        <p>No subjects yet!</p>
+                        {% endfor %}
 
-
-
-                                </div>
+                 </div>
 
               </div>
             </div>

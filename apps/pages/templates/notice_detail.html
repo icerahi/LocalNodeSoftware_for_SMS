@@ -1,18 +1,47 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-<a href="{% url 'home' %}"> Home</a>
+{% block nav %}
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="{% url 'home' %}">হোম</a>/
+            <a class="navbar-brand" href="{% url 'notice_list' %}">নোটিশ</a>
+          </div>
+{% endblock nav %}
 
-Notice: <h1>{{object.title }}</h1>
-body : <div>{{object.body|safe}}</div>
+{% block body %}
+<div class="content container mt-3">
+          <div class="col-md-12">
+            <div class="card shadow-2-strong">
+              <div class="card-header card-header-danger shadow-1-strong">
+                <div class="row">
 
-</body>
-</html>
+                    <div class="justify-content-center text-center text-dark">
+                        <span class="h5 lead" id="day">বিষয়ঃ  {{object.title }}</span>
+
+                    </div>
+                </div>
+              </div>
+
+           <div class="card-body header">
+                <div class="row text-center container-fluid">
+
+                     {{object.body|safe}}
+
+
+                </div>
+
+
+              </div>
+
+            </div>
+
+
+            </div>
+          </div>
+
+
+      </div>
+
+
+
+
+{% endblock body %}

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #thirdparty
+    'ckeditor',
     'rest_framework',
     'django_cleanup',
 
@@ -135,3 +136,20 @@ STATICFILES_DIRS=[
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT= BASE_DIR/'media'
+
+#rich text editor
+CKEDITOR_CONFIGS = {
+    'default': {
+        'skin': 'moono',
+        'toolbar_CustomToolbarConfig': [
+            {'name': 'customtools', 'items':
+                ['Undo', 'Redo','-','Bold', 'Italic', 'Underline', 'TextColor', 'BGColor','Subscript',
+                 'Superscript', '-', 'RemoveFormat','NumberedList', 'BulletedList','-', 'Blockquote', '-',
+                'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-','Image', 'Table',
+                 'HorizontalRule','Styles','Print','Maximize','Preview','Format','FontSize', 'Font',
+            ]},
+        ],
+        'toolbar': 'CustomToolbarConfig',
+        'tabSpaces': 4,
+    }
+}

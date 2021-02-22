@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block nav %}
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="{% url 'home' %}">হোম</a>/
+
+          </div>
+{% endblock nav %}
+
+{% block body %}
+<div class="content container mt-3">
+          <div class="col-md-12">
+            <div class="card shadow-2-strong">
+                  <div class="card-header card-header-danger shadow-1-strong">
+                <h4 class="card-title ">পড়ালেখা</h4>
+
+                <p class="card-category">বিষয়সমুহ</p>
+              </div>
+
+           <div class="card-body header">
+
+           <div class="row justify-content-center text-center">
+
+                        {% for subject in subjects %}
+                        <div onclick="window.location.href='{% url 'content_list' subject=subject.subject %}'" class="col-md-2 shadow-3-strong bg-success rounded m-3 p-0 ">
+                            <a href="{% url 'content_list' subject=subject.subject %}"><img
+                            src="{% static 'book.png' %}"
+                            class="figure-img img-fluid rounded "
+                            alt="..."
+                          />
+
+                            </a>
+                            <strong class="m-0 p-0 lead">{{subject.subject}}</strong>
+                             </div>
+                        {% empty %}
+                        <p>No subjects yet!</p>
+                        {% endfor %}
+
+                 </div>
+
+              </div>
+
+            </div>
+
+
+            </div>
+          </div>
+
+
+      </div>
+
+
+
+
+{% endblock body %}

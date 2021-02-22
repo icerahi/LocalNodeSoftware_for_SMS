@@ -68,31 +68,31 @@
               <p> কলম </p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#">
+          <li class="nav-item {% if url_name == 'study' or url_name == 'content_list' or url_name == 'content' %} active {% endif %} ">
+            <a class="nav-link" href="{% url 'study' %}">
               <i class="material-icons">content_paste</i>
               <p>পড়ালেখা</p>
             </a>
           </li>
-          <li class="nav-item ">
+
+          <li class="nav-item  {% if url_name == 'notice_list' or url_name == 'notice_detail' %} active {% endif %}">
+            <a class="nav-link" href="{% url 'notice_list' %}">
+              <i class="material-icons">bubble_chart</i>
+              <p>নোটিশ</p>
+            </a>
+          </li>
+          <li class="nav-item {% if url_name == 'routine'%}active {% endif %}">
+            <a class="nav-link" href="{% url 'routine' %}">
+              <i class="material-icons">location_ons</i>
+              <p>রুটিন</p>
+            </a>
+          </li>
+              <li class="nav-item ">
             <a class="nav-link" href="#">
               <i class="material-icons">library_books</i>
               <p>পরীক্ষা</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#">
-              <i class="material-icons">bubble_chart</i>
-              <p>নোটিশ</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#">
-              <i class="material-icons">location_ons</i>
-              <p>রুটিন</p>
-            </a>
-          </li>
-
           <li class="nav-item ">
             <a class="nav-link" href="#">
               <i class="material-icons">notifications</i>

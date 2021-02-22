@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from apps.data_store.models import NodeData, Notice, CourseMaterial
+from apps.data_store.models import NodeData, Notice, CourseMaterial, Routine
 
 
 @admin.register(NodeData)
@@ -14,4 +14,8 @@ class NoticeAdmin(admin.ModelAdmin):
 
 @admin.register(CourseMaterial)
 class CourseMaterialAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Routine)
+class RoutineAdmin(admin.ModelAdmin):
     pass
