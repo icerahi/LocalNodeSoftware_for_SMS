@@ -11,3 +11,4 @@ router.register('course_material',views.CourseMaterialViewSet)
 urlpatterns=[
     path('',include(router.urls)),
 ]
+

@@ -10,5 +10,5 @@ urlpatterns=[
     path('notice/',views.NoticeListView.as_view(),name="notice_list"),
     path('notice/<pk>',views.NoticeDetailView.as_view(),name='notice_detail'),
     path('study/',views.study,name='study'),
-    path('routine/',views.Routine.as_view(),name='routine'),
+    path('routine/',views.RoutineView.as_view(),name='routine'),
 ]

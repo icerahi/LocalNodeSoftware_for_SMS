@@ -87,7 +87,7 @@ class Routine(models.Model):
         return f'{self.subject}/{self.day}/{self.start_time}-{self.end_time}'
 
     class Meta:
-        ordering = ['start_time']
+        ordering = ['created']
         constraints = [
             models.UniqueConstraint(
                 fields=['subject', 'day', 'start_time','end_time'],

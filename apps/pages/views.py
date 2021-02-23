@@ -7,7 +7,7 @@ from apps.data_store.models import Notice, CourseMaterial, Routine
 
 
 def home(request):
-    subjects = set(CourseMaterial.objects.only('subject'))
+    subjects = set(CourseMaterial.objects.values_list('subject',flat=True))
     context = {'subjects':subjects}
     return render(request,'home.html',context)
 
@@ -39,11 +39,17 @@ class NoticeDetailView(DetailView):
     model = Notice
 
 def study(request):
-    subjects = set(CourseMaterial.objects.only('subject'))
+    subjects = set(CourseMaterial.objects.values_list('subject',flat=True))
     context = {'subjects': subjects}
     return render(request,'study.html',context)
 
-class Routine(ListView):
+class RoutineView(ListView):
     model = Routine
     template_name = 'routine.html'
+
+    def get_context_data(self,**kwarg):
+        context=super(RoutineView, self).get_context_data(**kwarg)
+
+        context['days']=set(Routine.objects.values_list('day',flat=True))
+        return context
 
